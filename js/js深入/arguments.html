@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        //function css() {
+        //    if (arguments.length == 2) {    //获取
+
+
+        //        return arguments[0].style[arguments[1]];
+
+        //    } else {                      //设置
+
+
+        //        arguments[0].style[arguments[1]] = arguments[2];
+
+        //    }
+        //}
+        //等同于
+        //function css(obj, name, value) {
+
+        //    if (arguments.length == 2) {
+
+        //        return obj.style[name];
+
+        //    } else {
+
+        //        obj.style[name] = value;
+
+        //    }
+        //}
+        //window.onload = function () {
+
+
+        //    var oDiv = document.getElementById("div1");
+
+        //    //alert(css(oDiv, "width"));//获取
+
+        //    css(oDiv, "background","blue");//设置
+
+        //};
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+
+            alert(oDiv.style.background);
+            alert(oDiv.style['background']);
+        };
+
+    </script>
+</head>
+<body>
+    <div id="div1" style="width:100px;height:200px;background:red;"></div>
+
+</body>
+</html>

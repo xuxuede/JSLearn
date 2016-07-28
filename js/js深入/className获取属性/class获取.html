@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        window.onload = function () {
+
+            //设置0、3的li标签背景色为红色
+            var oUl = document.getElementById("ul1");
+
+            var aLi = document.getElementsByTagName("li");
+
+            //aLi[0].style.background = "red";
+            //aLi[3].style.background = "red";
+
+            //如果要选择的很多呢？？那么就过于繁琐，因此引出className属性选择
+
+            for (var i = 0; i < aLi.length; i++) {
+
+                if (aLi[i].className == "box") {
+
+
+                    aLi[i].style.background = "red";
+
+                }
+
+
+
+            }
+           
+
+            
+        };
+    </script>
+</head>
+<body>
+    <ul id="ul1">
+        <li class="box">1</li>
+        <li class="box">2</li>
+        <li>3</li>
+        <li class="box">4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

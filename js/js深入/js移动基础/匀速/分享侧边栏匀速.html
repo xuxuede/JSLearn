@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1{
+
+            width:150px;
+            height:200px;
+            background:green;
+            position:absolute;
+            left:-150px;
+            cursor:pointer;
+        }
+        span {
+
+            position:absolute;
+            width:20px;
+            height:60px;
+            line-height:20px;
+            text-align:center;
+            background:red;
+            right:-20px;
+            top:70px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+          
+            //oDiv.onmouseover = function () {
+
+            //    startMove();
+
+            //}
+            //oDiv.onmouseout = function () {
+
+            //    leave();
+
+            //}
+
+            //oDiv.onmouseover = function () {
+
+            //    Move(10,0);
+          
+            //}
+            //oDiv.onmouseout = function () {
+
+            //    Move(-10, -150);
+
+            //}
+            //进一步优化参数数量，去掉speed
+            oDiv.onmouseover = function () {
+
+                Move(0);
+
+            }
+            oDiv.onmouseout = function () {
+
+                Move(-150);
+
+            }
+            
+        };
+        var timer = null;
+        //两个函数，只有速度以及运动的目标不一样，因此可以用一个函数来写
+        //function startMove() {
+
+        //        var oDiv = document.getElementById("div1");
+
+        //        clearInterval(timer);
+        //        timer = setInterval(function () {
+
+        //            if (oDiv.offsetLeft == 0) {
+
+        //                clearInterval(timer);
+
+        //            }
+        //            else {
+        //                oDiv.style.left = oDiv.offsetLeft + 10 + "px";
+        //            }
+        //        }, 30);
+     
+        //}
+
+        //function leave() {
+
+        //        var oDiv = document.getElementById("div1");
+        //        clearInterval(timer);
+        //        timer = setInterval(function () {
+
+        //            if (oDiv.offsetLeft == -150) {
+
+        //                clearInterval(timer);
+
+        //            }
+        //            else {
+        //                oDiv.style.left = oDiv.offsetLeft - 10 + "px";
+        //            }
+        //        }, 30);
+
+        //    }
+      //进一步优化，减少参数数量
+        //function Move(speed,iTarget) {
+
+        //    var oDiv = document.getElementById("div1");
+
+        //    clearInterval(timer);
+        //    timer = setInterval(function () {
+
+        //        if (oDiv.offsetLeft == iTarget) {
+
+        //            clearInterval(timer);
+
+        //        }
+        //        else {
+        //            oDiv.style.left = oDiv.offsetLeft + speed + "px";
+        //        }
+        //    }, 30);
+
+        //}
+        function Move(iTarget) {
+
+            var speed = 0;
+            var oDiv = document.getElementById("div1");
+            clearInterval(timer);
+            timer = setInterval(function () {
+
+                if (oDiv.offsetLeft > iTarget) {
+
+                    speed = -10;
+
+                } else {
+
+                    speed = 10;
+
+                }
+
+                if (oDiv.offsetLeft == iTarget) {
+
+                    clearInterval(timer);
+
+                }
+                else {
+                    oDiv.style.left = oDiv.offsetLeft + speed + "px";
+                }
+            }, 30);
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <span>分享到</span>
+    </div>
+
+</body>
+</html>

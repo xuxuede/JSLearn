@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style type="text/css">
+        #div1 {
+            width:100px;
+            height:100px;
+            border:1px solid red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oTxt = document.getElementById("txt1");
+            var oBtn = document.getElementById("btn1");
+            var oDiv = document.getElementById("div1");
+
+            oBtn.onclick = function () {
+
+                oDiv.innerHTML = oTxt.value;
+                //alert(oDiv.innerHTML);可以写入，也可以获取
+            };
+           
+
+
+        }
+    </script>
+    
+</head>
+<body>
+    <input id="txt1" type="text"/>
+    <input id="btn1" type="button" value="提交数据"/>
+    <div id="div1">
+        标题的
+    </div>
+</body>
+</html>

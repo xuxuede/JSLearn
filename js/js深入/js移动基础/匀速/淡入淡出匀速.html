@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:200px;
+            height:200px;
+            background:red;
+            opacity:0.3;
+            /*filter:alpha(opacity:30);*/ /*适配ie低版本*/
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+
+            oDiv.onmouseover = function () {
+
+                change(100);
+            }
+            oDiv.onmouseout = function () {
+
+                change(30);
+            }
+
+        };
+
+       
+        var timer = null;
+        var speed = 0;
+        var alpha = 30;
+
+        function change(iTarget) {
+
+            var oDiv = document.getElementById("div1");
+
+            clearInterval(timer);
+
+            timer=setInterval(function () {
+
+                if (alpha > iTarget) {
+
+                    speed = -1;
+                } else {
+
+                    speed = 1;
+                }
+
+                if (alpha == iTarget) {
+
+                    clearInterval(timer);
+
+                } else {
+
+                    alpha += speed;
+                    oDiv.style.filter = "alpha(opacity:" + alpha + ")";
+                    oDiv.style.opacity = alpha / 100;
+                }
+                
+            },30)
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+    </div>
+</body>
+</html>

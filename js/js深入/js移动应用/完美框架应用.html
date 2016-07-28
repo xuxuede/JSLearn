@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:200px;
+            height:200px;
+            background:red;
+        }
+    </style>
+    <script src="完美运动框架_json.js"></script>
+    <script>
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+            var oBtn1 = document.getElementById("btn1");
+            var oBtn2 = document.getElementById("btn2");
+            oBtn1.onclick = function () {
+
+                changeStyle(oDiv, { "width": 400, "height": 400,"opacity":30 });
+            }
+            oBtn2.onclick = function () {
+
+                changeStyle(oDiv, { "width": 200, "height": 200, "opacity": 100 });
+            }
+           
+
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" id="btn1" value="运动" />
+    <input type="button" id="btn2" value="恢复"/>
+    <div id="div1"></div>
+</body>
+</html>

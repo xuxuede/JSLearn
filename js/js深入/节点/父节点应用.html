@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        window.onload = function () {
+
+            var aA = document.getElementsByTagName("a");
+
+            for (var i = 0; i < aA.length; i++) {
+
+                aA[i].onclick = function () {
+
+                    this.parentNode.style.display = "none";
+
+                }
+            }
+
+        };
+    </script>
+</head>
+<body>
+    <!--应用：点击隐藏，隐藏整条li的内容-->
+    <ul>
+        <li>123456<a href="javascript:;">隐藏</a></li>
+        <li>345678<a href="javascript:;">隐藏</a></li>
+        <li>5678<a href="javascript:;">隐藏</a></li>
+        <li>fasfsgf<a href="javascript:;">隐藏</a></li>
+        <li>r3qretwet<a href="javascript:;">隐藏</a></li>
+    </ul>
+
+</body>
+</html>

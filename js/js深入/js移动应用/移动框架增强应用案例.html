@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:200px;
+            height:200px;
+            background:red;
+        }
+    </style>
+    <script src="运动框架加强.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+
+            oDiv.onmouseover = function () {
+
+                changeStyle(oDiv, "width", 400, function () {
+                    changeStyle(oDiv, "height", 400, function () {
+
+                        changeStyle(oDiv, "opacity", 60)
+
+                    })
+                })
+            }
+            oDiv.onmouseout = function () {
+
+                changeStyle(oDiv, "opacity", 100, function () {
+                    changeStyle(oDiv, "height", 200, function () {
+
+                        changeStyle(oDiv, "width", 200)
+
+                    })
+                })
+            }
+          
+
+
+
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+
+</body>
+</html>

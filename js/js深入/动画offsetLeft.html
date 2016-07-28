@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:100px;
+            height:100px;
+            background:red;
+            position:absolute;
+            top:100px;
+            left:0px;
+        }
+        body {
+            overflow:hidden;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+
+            setInterval(function () {
+
+
+                oDiv.style.left = oDiv.offsetLeft + 10 + "px";
+
+
+            },30);
+
+        };
+
+
+    </script>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+
+</body>
+</html>

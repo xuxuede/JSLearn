@@ -1,0 +1,232 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        td {
+           text-align:center;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oTab = document.getElementById("tab1");
+
+            //获取某个元素
+            //alert(oTab.getElementsByTagName("tbody")[0].
+            //    getElementsByTagName("tr")[1].
+            //    getElementsByTagName("td")[2].innerHTML);
+
+            //等同于
+            //getElementsByTagName("tbody")[0] = tBodies[0];
+            //getElementsByTagName("tr")[1] = rows[1];
+            //getElementsByTagName("td")[2] = cells[2];
+
+            //alert(oTab.tBodies[0].rows[1].cells[2].innerHTML);
+
+            //隔行变色
+            //for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+
+            //    if (i % 2 == 0) {
+
+            //        oTab.tBodies[0].rows[i].style.background = "red";
+
+            //    } else {
+
+
+            //        oTab.tBodies[0].rows[i].style.background = "grey";
+            //    }
+
+
+            //}
+            //鼠标停留，背景变亮
+            //for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+
+            //    oTab.tBodies[0].rows[i].onmouseover = function () {
+
+            //        //this.style.background = "yellow";
+            //       this.style.background = "yellow";
+
+            //    }
+            //    oTab.tBodies[0].rows[i].onmouseout = function () {
+
+            //        this.style.background = "";
+
+            //    }
+            //}
+            //表格的添加、删除
+            //var oBtn = document.getElementById("btn1");
+            //var oName=document.getElementById("name");
+            //var oAge = document.getElementById("age");
+           
+
+            //oBtn.onclick = function () {
+
+            //    var oTr = document.createElement("tr");
+
+            //    var oTd = document.createElement("td");
+            //    oTd.innerHTML = oTab.tBodies[0].rows.length + 1;//出问题的地方
+            //    //因为这边的id是根据rows的条数，即行数来决定的
+            //    //
+            //    oTr.appendChild(oTd);
+
+            //    var oTd = document.createElement("td");
+            //    oTd.innerHTML = oName.value;
+            //    oTr.appendChild(oTd);
+
+            //    var oTd = document.createElement("td");
+            //    oTd.innerHTML = oAge.value;
+            //    oTr.appendChild(oTd);
+
+            //    var oTd = document.createElement("td");
+            //    oTd.innerHTML = "<a href='javascript:;'>删除</a>";
+            //    oTr.appendChild(oTd);
+            //    oTab.tBodies[0].appendChild(oTr);
+
+            //    oTd.getElementsByTagName("a")[0].onclick = function () {
+
+
+
+            //        oTab.tBodies[0].removeChild(this.parentNode.parentNode);
+
+
+            //    }    
+            //};
+            //var oBtn = document.getElementById("btn2");
+            //var oTxt=document.getElementById("search");
+
+            //oBtn.onclick = function () {
+
+            //    for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+            //        //toLowerCase()转小写
+            //        //if (oTab.tBodies[0].rows[i].cells[2].innerHTML.toLowerCase()== oTxt.value.toLowerCase()) 
+            //        var a = oTab.tBodies[0].rows[i].cells[2].innerHTML.toLowerCase();
+            //        var b = oTxt.value.toLowerCase();
+
+            //        var arr = b.split("  ");
+            //        oTab.tBodies[0].rows[i].style.background = "";
+            //        for (var j = 0; j < arr.length; j++) {
+
+            //            if (a.search(arr[j]) != -1 || b.search(a) != -1) {
+
+            //                //oTab.tBodies[0].rows[i].style.background = "yellow";
+            //                oTab.tBodies[0].rows[i].style.display = "block";
+
+            //            }else {
+
+
+            //                //oTab.tBodies[0].rows[i].style.background = "";
+            //                oTab.tBodies[0].rows[i].style.display = "none";
+            //            }
+            //        }
+
+            //    }
+
+
+
+            //};
+            var oBtn = document.getElementById("btn3");
+
+            oBtn.onclick = function () {
+
+                //alert('有用');
+
+                var arr = [];
+
+                for (var i = 0; i < oTab.tBodies[0].rows.length; i++) {
+
+                    arr[i] = oTab.tBodies[0].rows[i];
+
+                }
+
+                arr.sort(function (tr1,tr2) {
+
+                    var n1 = parseInt(tr1.cells[0].innerHTML);
+                    var n2 = parseInt(tr2.cells[0].innerHTML);
+
+                    return n1 - n2;
+
+                });
+
+                for (var i = 0; i < arr.length; i++) {
+
+
+                    oTab.tBodies[0].appendChild(arr[i]);
+
+
+                }
+
+
+
+
+
+
+            }
+
+            
+        };
+    </script>
+</head>
+<body>
+    <!--怎么样获取table中的y-->
+    <!--奇数偶数行隔色，不包括thead-->
+    <!--鼠标停留变色-->
+    <!--添加、删除表格的行-->
+    <!--搜索-->
+    <!--筛选-->
+    <!--姓名：<input type="text"  id="name" />
+    <!--按照id的大小进行排序-->
+    年龄：<input type="text" id="age" />
+    <input type="button" id="btn1" value="增加"/>
+    搜索:<input type="text" id="search" /><input type="button" id="btn2" value="搜索"/>
+   <br><input type="button" id="btn3" value="排序"/>
+     <table id="tab1" border="1" width="200">
+        <thead>
+        <td>ID</td>
+        <td>年龄</td>
+        <td>姓名</td>
+        <td>操作</td>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>22</td>
+                <td>xyz</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>24</td>
+                <td>y</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>28</td>
+                <td>z</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>28</td>
+                <td>张三</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>28</td>
+                <td>王三</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>28</td>
+                <td>李四</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body> 
+</html>

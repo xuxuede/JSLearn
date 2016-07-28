@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        window.onload = function () {    //页面加载完毕，如果没有这句，则执行完js代码之后，不加载以下代码
+                                         //等同于jq中的 $(function(){});
+        
+            function test() {
+
+                alert("abc");
+
+            }
+            var oBtn = document.getElementById("btn1");
+            oBtn.onclick = test;
+        
+        };
+    </script>
+</head>
+<body>
+    <input id="btn1" type="button" value="按钮"/>
+
+    
+
+
+
+</body>
+</html>

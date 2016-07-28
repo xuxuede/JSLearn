@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:100px;
+            height:150px;
+            background:red;
+            position:absolute;
+            right:0;
+            bottom:0;
+
+        }
+    </style>
+    <script>
+        window.onscroll = function () {
+
+            var oDiv = document.getElementById("div1");
+
+            //滚动条，对象距离可视区域的最顶端的距离
+            var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+
+            //设定对象的顶部距离，为客户端的可视高度减去自身高度再加上滚动高度,后面的距离就是目标
+            //直接这样做，滚动条下拉上拉的过程，会产生抖动
+            //oDiv.style.top = document.documentElement.clientHeight - oDiv.offsetHeight + scrollTop+"px";
+
+            move(document.documentElement.clientHeight - oDiv.offsetHeight + scrollTop);
+        };
+        var timer = null;
+
+        function move(iTarget) {
+
+            var oDiv = document.getElementById("div1");
+            clearInterval(timer);
+
+            timer = setInterval(function () {
+
+                var speed = (iTarget - oDiv.offsetTop) / 8;
+
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+                
+                if (oDiv.offsetTop == iTarget) {
+
+                    clearInterval(timer);
+                } else {
+
+                    oDiv.style.top = oDiv.offsetTop + speed + "px";
+                }
+
+
+            });
+
+
+        }
+    </script>
+</head>
+<body style="height:2000px">
+    <div id="div1"></div>
+
+</body>
+</html>

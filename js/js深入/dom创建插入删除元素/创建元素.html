@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oBtn = document.getElementById("btn1");
+            var oUl = document.getElementById("ul1");
+            var oTxt = document.getElementById("txt1");
+            oBtn.onclick = function () {
+
+
+                var oLi = document.createElement("li");
+
+                var aLi = document.getElementsByTagName("li");
+
+                oLi.innerHTML = oTxt.value;
+
+                //告诉创建的oLi在哪
+               // oUl.appendChild(oLi);
+                if (aLi.length > 0) {
+
+                    oUl.insertBefore(oLi, aLi[0]);//即在第0个元素前面插入
+                } else {
+
+
+                    oUl.appendChild(oLi);
+                }
+
+            }
+
+
+        };
+    </script>
+</head>
+<body>
+    <input type="text" id="txt1"/>
+    <input type="button" value="创建元素" id="btn1" />
+
+    <ul id="ul1">
+    </ul>
+
+</body>
+</html>

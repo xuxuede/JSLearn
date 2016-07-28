@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+        
+            width:100px;
+            height:100px;
+            border:1px solid grey;
+            background:grey;
+        }
+    </style>
+    <script>
+        //function changeStyle(wid,hei,col) {
+
+        //    var oDiv = document.getElementById("div1");
+
+        //    oDiv.style.width = wid;
+        //    oDiv.style.height = hei;
+        //    oDiv.style.background = col;
+
+        //}
+
+        function changeStyle(name,value) {
+
+            var oDiv = document.getElementById("div1");
+
+            oDiv.style[name] = value;//按照这样的思路，但是name不是属性
+        }
+
+    </script>
+</head>
+<body>
+    <!--<input type="button" value="变宽" onclick="changeStyle('200px', '100px', 'grey')"/>
+    <input type="button" value="变高" onclick="changeStyle('100px', '200px', 'grey')" />
+    <input type="button" value="变红" onclick="changeStyle('100px', '100px', 'red')" />-->
+
+    <input type="button" value="变宽" onclick="changeStyle('width','200px')" />
+    <input type="button" value="变高" onclick="changeStyle('height','200px')" />
+    <input type="button" value="变红" onclick="changeStyle('background', 'red')" />
+    <div id="div1">
+
+
+    </div>
+</body>
+</html>

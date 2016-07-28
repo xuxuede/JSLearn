@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <script>
+        //var arr = [1, 2, 3, 4];
+
+        //arr.length = 2;//设置完length后，数组的长度就被改变，只显示1,2
+
+        //头部尾部添加删除
+        //arr.push(5);//往数组尾部添加一个元素，相对用的比较多
+        //arr.pop();//删除数组尾部的一个元素
+        //arr.shift();//删除数组头部的一个元素
+        //arr.unshift(6);//往数组头部添加一个元素
+
+        //任意位置添加删除
+        //arr.splice(2, 1);//从第几个开始，删除多少个元素，即从3开始，删除1个元素
+        //输出1，2,4
+        //arr.splice(2, 0, "7", "8");//第二个元素开始，删除0个元素，添加7,8
+        //输出1,2,7,8
+
+        //alert(arr.join("-"));
+        //alert(arr.join("- -p"));
+
+        
+
+
+        //alert(arr);
+
+        var arr = ["stupid", "absoulute", "float", "xxd", "zoom"];
+        var arr1=["112","123","111","89","99","123","99"]
+
+        //arr1.sort();//排序按照字符串的格式
+
+       // alert(arr1);//还是按照字符串的顺序规则排序
+
+        arr1.sort(function (n1, n2) {
+
+            //if (n1 < n2) {
+
+            //    return -1;//只要是负数就好
+
+            //} else if (n1 > n2) {
+
+            //    return 1;
+            //} else {
+
+            //    return 0;
+            //}
+
+            return n2 - n1;//从小到大
+
+        });
+
+        alert(arr1);
+
+
+
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

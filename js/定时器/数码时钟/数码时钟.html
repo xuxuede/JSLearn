@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        window, onload = function () {
+            //将时分秒都转换为2位数字
+            function toDouble(n1) {
+
+                if (n1 < 10) {
+
+                    return "0" + n1;
+                } else {
+
+                    return "" + n1;//这边这样的形式写，就转化为了字符串形式，因为date get方法出来的是数字
+                }
+            }
+
+            function tick() {
+                var aImg = document.getElementsByTagName("img");
+                //动态得到时间，而不是固定的
+                //var str = "012321";
+                var oDate = new Date();
+
+                //str实际就是一个六位数的字符串
+                var str = toDouble(oDate.getHours()) + toDouble(oDate.getMinutes()) + toDouble(oDate.getSeconds());
+
+
+                //设置图像路径
+                for (var i = 0; i < aImg.length; i++) {
+
+                    //aImg[i].src = "images/" + str[i] + ".png";//不兼容ie7,ie8以上
+                    aImg[i].src = "images/" + str.charAt(i) + ".png";//这种形式可以兼容ie7
+
+                }
+            }
+            setInterval(tick, 1000);
+            tick();
+        };
+    </script>
+</head>
+<body style="background:black;color:white;font-size:50px;">
+    <img src="images/0.png" />
+    <img src="images/0.png" />:
+    <img src="images/0.png" />
+    <img src="images/0.png" />:
+    <img src="images/0.png" />
+    <img src="images/0.png" />
+</body>
+</html>

@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            float: left;
+            margin: 200px;
+        }
+
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+        }
+
+        #div3 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            font-size: 14px;
+        }
+
+        #div4 {
+            width: 200px;
+            height: 200px;
+            background: orange;
+            border: 10px solid black;
+        }
+
+        #div5 {
+            width: 200px;
+            height: 200px;
+            background: purple;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oDiv1 = document.getElementById("div1");
+            var oDiv2 = document.getElementById("div2");
+            var oDiv3 = document.getElementById("div3");
+            var oDiv4 = document.getElementById("div4");
+         
+
+            oDiv1.onmouseover = function () {
+
+                changeStyle(this, "height", 400);
+
+            }
+            oDiv1.onmouseout = function () {
+
+                changeStyle(this, "height", 200);
+
+            }
+            oDiv2.onmouseover = function () {
+
+                changeStyle(this, "opacity", 100);
+
+            }
+            oDiv2.onmouseout = function () {
+
+                changeStyle(this, "opacity", 30);
+
+            }
+           
+        };
+
+        function changeStyle(obj, arr, iTarget) {
+
+        
+            clearInterval(obj.timer);
+
+            obj.timer = setInterval(function () {
+
+                var cur = 0;
+                
+
+                if (arr == "opacity") {
+
+                    cur = parseFloat(getStyle(obj, arr)) * 100;
+
+                } else {
+
+                    cur = parseInt(getStyle(obj, arr));
+
+                }
+
+                var speed = (iTarget - cur) / 6;
+
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                if (iTarget == cur) {
+
+                    clearInterval(obj.timer);
+
+                } else {
+
+                    if (arr == "opacity") {
+
+                        obj.style.filter = "alpha(opacity:'+(cur+speed)+')";
+                        obj.style.opacity = (cur + speed) / 100;
+
+                        document.getElementById("txt1").value = obj.style.opacity;
+                        
+
+
+                    } else {
+
+                        obj.style[arr] = cur + speed + "px";
+                    }
+
+                   
+
+                }
+
+            }, 30)
+        }
+
+        function getStyle(obj, name) {
+
+            if (obj.currentStyle) {
+
+
+                return obj.currentStyle[name];
+
+            } else {
+
+                return getComputedStyle(obj, false)[name];
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">变高</div>
+    <div id="div2">透明度</div>
+    <input type="text" id="txt1"/>
+</body>
+</html>

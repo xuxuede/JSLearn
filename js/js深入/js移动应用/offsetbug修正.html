@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:200px;
+            height:200px;
+            border:1px solid red;
+            background:red;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            setInterval(function () {
+
+                var oDiv = document.getElementById("div1");
+
+                //当非行间样式的时候，不会动
+                //oDiv.style.width = parseInt(oDiv.style.width) - 1 + "px";
+                oDiv.style.width = parseInt(getStyle(oDiv, 'width')) - 1 + "px";
+
+            }, 30)
+
+        };
+
+        function getStyle(obj,name) {
+
+            if (obj.currentStyle) {
+
+                return obj.currentStyle[name];
+
+            } else {
+
+                return getComputedStyle(obj, false)[name];
+            }
+
+        }
+ 
+
+    </script>
+</head>
+<body>
+    <!--<div id="div1" style="width:200px;"></div>-->
+    <div id="div1"></div>
+</body>
+</html>

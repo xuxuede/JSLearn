@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script>
+        window.onload = function () {
+
+            var oBtn1 = document.getElementById("btn1");
+            var oBtn2 = document.getElementById("btn2");
+            var timer;
+
+            oBtn1.onclick = function () {
+                timer = setInterval(function () {
+
+                    alert("定时器开启了啊！！！");
+
+
+                }, 3000);
+
+            };
+            oBtn2.onclick = function () {
+
+                clearInterval(timer);
+
+            };
+        };
+    </script>
+</head>
+<body>
+    <input type="button" value="开启定时器" id="btn1" />
+    <input type="button" value="关闭定时器" id="btn2" />
+</body>
+</html>

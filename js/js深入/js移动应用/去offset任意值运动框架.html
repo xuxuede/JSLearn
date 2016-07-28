@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        div {
+            float: left;
+            margin: 200px;
+        }
+
+        #div1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+
+        #div2 {
+            width: 200px;
+            height: 200px;
+            background: yellow;
+            display:none;
+        }
+        #div3 {
+            width: 100px;
+            height: 100px;
+            background: blue;
+            font-size:14px;
+        }
+          #div4{
+            width: 200px;
+            height: 200px;
+            background: orange;
+            border:10px solid black;
+        }
+          #div5{
+            width: 200px;
+            height: 200px;
+            background:purple ;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var oDiv1 = document.getElementById("div1");
+            var oDiv2 = document.getElementById("div2");
+            var oDiv3 = document.getElementById("div3");
+            var oDiv4 = document.getElementById("div4");
+
+
+            oDiv1.onmouseover = function () {
+
+                changeStyle(this,"height", 400);
+
+            }
+            oDiv1.onmouseout = function () {
+
+                changeStyle(this, "height", 200);
+
+            }
+            oDiv2.onmouseover = function () {
+
+                changeStyle(this, "width", 400);
+
+            }
+            oDiv2.onmouseout = function () {
+
+                changeStyle(this, "width", 200);
+
+            }
+            oDiv3.onmouseover = function () {
+
+                changeStyle(this, "fontSize", 50);
+
+            }
+            oDiv3.onmouseout = function () {
+
+                changeStyle(this, "fontSize", 14);
+
+            }
+            oDiv4.onmouseover = function () {
+
+                changeStyle(this, "borderWidth", 100);
+
+            }
+            oDiv4.onmouseout = function () {
+
+                changeStyle(this, "borderWidth", 10);
+
+            }
+            oDiv5.onmouseover = function () {
+
+                changeStyle(this, "opacity", 1);
+
+            }
+            oDiv5.onmouseout = function () {
+
+                changeStyle(this, "opacity", 0.5);
+
+            }
+
+        };
+
+        function changeStyle(obj,arr, iTarget) {
+
+            clearInterval(obj.timer);
+
+            obj.timer = setInterval(function () {
+
+                var cur = parseInt(getStyle(obj,arr))
+
+                var speed = (iTarget - cur) / 6;
+
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                if (iTarget == cur) {
+
+                    clearInterval(obj.timer);
+
+                } else {
+
+                    obj.style[arr] = cur + speed + "px";
+
+                }
+
+            }, 30)
+        }
+            //function changeStyle2(obj, iTarget) {
+
+            //    clearInterval(obj.timer);
+
+            //    obj.timer = setInterval(function () {
+
+            //        var speed = (iTarget - obj.offsetWidth) / 6;
+
+            //        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+            //        if (iTarget == obj.offsetWidth) {
+
+            //            clearInterval(obj.timer);
+
+            //        } else {
+
+            //            obj.style.width = obj.offsetWidth + speed + "px";
+
+            //        }
+
+            //    }, 30)
+            //}
+            function getStyle(obj, name) {
+
+                if (obj.currentStyle) {
+
+
+                    return obj.currentStyle[name];
+
+                } else {
+
+                    return getComputedStyle(obj, false)[name];
+
+                }
+            }
+    </script>
+</head>
+<body>
+    <div id="div1">变高</div>
+    <div id="div2">变宽</div>
+    <div id="div3">dadaffwewet</div>
+    <div id="div4"></div>
+    <div id="div5"></div>
+
+</body>
+</html>

@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div2 {
+            width: 500px;
+            height: 400px;
+            background:red;
+        }
+    </style>
+    <script>
+        //获取div1行间样式
+        //window.onload = function () {
+
+        //    var oDiv = document.getElementById("div1");
+
+        //    alert(oDiv.style.background);
+        //    alert(oDiv.style['background']);
+        //};
+
+        //获取div2的非行间样式
+        //封装函数
+        function getStyle(obj,name) {
+
+            if (obj.currentStyle) {
+
+
+                return obj.currentStyle[name];
+
+            } else {
+
+
+                return getComputedStyle(obj, false)[name];
+
+            }
+        }
+        window.onload = function () {
+
+            var oDiv2 = document.getElementById("div2");
+
+            alert(getStyle(oDiv2, "background-color"));
+
+        };
+
+
+        //window.onload = function () {
+
+        //    var oDiv2 = document.getElementById("div2");
+
+
+        //    if (oDiv2.currentStyle) {
+
+        //        alert(oDiv2.currentStyle.width);
+        //    } else {
+        //        alert(getComputedStyle(oDiv2, null).width);
+        //    }
+          
+
+           
+
+        //};
+    </script>
+</head>
+<body>
+    <!--<div id="div1" style="width:100px;height:200px;background:red;"></div>-->
+    <div id="div2"></div>
+</body>
+</html>

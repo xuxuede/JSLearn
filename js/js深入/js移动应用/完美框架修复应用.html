@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        #div1 {
+            width:200px;
+            height:200px;
+            background:red;
+        }
+    </style>
+    <!--<script src="完美运动框架修复版本.js"></script>-->
+    <script src="完美运动框架_json.js"></script>
+    <script>
+        window.onload = function () {
+
+            var oDiv = document.getElementById("div1");
+            var oBtn = document.getElementById("btn");
+
+            oBtn.onclick = function () {
+
+                changeStyle(oDiv, { "width": 201, "height": 1000 }, function () {
+
+                    changeStyle(oDiv,{"opacity":50})
+
+                });
+
+            }
+
+        }
+
+
+
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮" id="btn"/>
+    <div id="div1"></div>
+</body>
+</html>

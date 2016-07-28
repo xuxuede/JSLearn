@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+	<meta charset="utf-8" />
+    <style>
+        div{
+            width:100px;
+            height:30px;
+            background:red;
+            margin:10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var aDiv = document.getElementsByTagName("div");
+
+            for (var i = 0; i < aDiv.length; i++) {
+
+                aDiv[i].onmouseover = function () {
+
+                    move(this, 400);
+
+                }
+                aDiv[i].onmouseout = function () {
+
+                    move(this, 100);
+
+                }
+
+            }
+        };
+        //问题，只有一个定时器，当开启一定定时器执行一个div变宽的时候，另一个也开启，那么第一个开启的还没回复到原位置，就被干掉了
+        var timer = null;
+        
+        function move(obj, iTarget) {
+
+            var aDiv = document.getElementsByTagName("div");
+
+            clearInterval(timer);
+
+            timer = setInterval(function () {
+
+                var speed = (iTarget - obj.offsetWidth) / 6;
+
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+             
+                if (iTarget == obj.offsetWidth) {
+
+                    clearInterval(timer);
+
+                } else {
+
+                    obj.style.width = obj.offsetWidth + speed + "px";
+                }
+            }, 30);
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
